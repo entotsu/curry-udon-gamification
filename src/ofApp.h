@@ -2,10 +2,12 @@
 
 #include "ofMain.h"
 #include "HitAnimation.h"
+#include "OpeningAnimation.h"
+#include "EndingAnimation.h"
 
 class ofApp : public ofBaseApp{
     
-    static const int MAX_ANIMATION = 90;
+    static const int MAX_ANIMATION = 10;
     
 	public:
 		void setup();
@@ -25,4 +27,12 @@ class ofApp : public ofBaseApp{
         HitAnimation hits[MAX_ANIMATION];
         int animationIndex;
         void hit(int score, float x, float y);
+    
+        OpeningAnimation opAnimation;
+        void startOpeningAnimation();
+        bool isRunningOpeningAnimation;
+    
+        EndingAnimation edAnimation;
+        void startEndingAnimation(int totalScore);
+        bool isRunningEndingAnimation;
 };

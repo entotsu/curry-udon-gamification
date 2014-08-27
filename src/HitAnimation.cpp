@@ -6,10 +6,7 @@
 //
 //
 
-
 #include "HitAnimation.h"
-
-
 #include <sstream>
 #include <string>
 
@@ -20,11 +17,12 @@ void HitAnimation::setup() {
 	scoreFont.loadFont("Batang.ttf", 10, true, true, true);
     scoreFont.setLineHeight(18.0f);
     scoreFont.setLetterSpacing(1.037);
+    alpha = 0;
     //debug
-    alpha = 255;
-    position.x = ofRandom(ofGetWidth());
-    position.y = ofRandom(ofGetHeight());
-    scoreText = toString(ofRandom(999));
+//    position.x = ofRandom(ofGetWidth());
+//    position.y = ofRandom(ofGetHeight());
+//    scoreText = toString(ofRandom(999));
+//    alpha = 1;
 }
 
 

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B054D3CC19AE360F0032FD4C /* EndingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B054D3CA19AE360F0032FD4C /* EndingAnimation.cpp */; };
 		B0AA6F1319AB97030086CD33 /* HitAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0AA6F1119AB97030086CD33 /* HitAnimation.cpp */; };
+		B0C719EF19AE310B008D95BD /* OpeningAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0C719ED19AE310B008D95BD /* OpeningAnimation.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -60,8 +62,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B054D3CA19AE360F0032FD4C /* EndingAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EndingAnimation.cpp; sourceTree = "<group>"; };
+		B054D3CB19AE360F0032FD4C /* EndingAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndingAnimation.h; sourceTree = "<group>"; };
 		B0AA6F1119AB97030086CD33 /* HitAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HitAnimation.cpp; sourceTree = "<group>"; };
 		B0AA6F1219AB97030086CD33 /* HitAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitAnimation.h; sourceTree = "<group>"; };
+		B0C719ED19AE310B008D95BD /* OpeningAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpeningAnimation.cpp; sourceTree = "<group>"; };
+		B0C719EE19AE310B008D95BD /* OpeningAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeningAnimation.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -184,10 +190,14 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				B0AA6F1119AB97030086CD33 /* HitAnimation.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				B0AA6F1219AB97030086CD33 /* HitAnimation.h */,
+				B0AA6F1119AB97030086CD33 /* HitAnimation.cpp */,
+				B0C719EE19AE310B008D95BD /* OpeningAnimation.h */,
+				B0C719ED19AE310B008D95BD /* OpeningAnimation.cpp */,
+				B054D3CB19AE360F0032FD4C /* EndingAnimation.h */,
+				B054D3CA19AE360F0032FD4C /* EndingAnimation.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -289,7 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				B0C719EF19AE310B008D95BD /* OpeningAnimation.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				B054D3CC19AE360F0032FD4C /* EndingAnimation.cpp in Sources */,
 				B0AA6F1319AB97030086CD33 /* HitAnimation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

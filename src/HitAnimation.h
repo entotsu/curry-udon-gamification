@@ -8,14 +8,9 @@
 
 #ifndef __animationFunction__HitAnimation__
 #define __animationFunction__HitAnimation__
-
 #include <iostream>
-
 #endif /* defined(__animationFunction__HitAnimation__) */
-
-
 #pragma once
-
 #include "ofMain.h"
 
 
@@ -27,11 +22,11 @@ public:
     void update();
     void start(int score,float x, float y);
 
+    string scoreText;
+    ofTrueTypeFont scoreFont;
     ofVec2f position;
     int alpha;
     bool isEnd;
-    string scoreText;
-    ofTrueTypeFont scoreFont;
 
 private:
     string toString(int n);
