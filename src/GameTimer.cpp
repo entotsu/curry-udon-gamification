@@ -67,15 +67,10 @@ void GameTimer::draw() {
     if (alpha > 0) {
         ofSetColor(0,0,0, alpha);
         
-        
-
-        
         ofPushMatrix();
             ofTranslate(position.x, position.y);
             ofRotateZ(90);
-//            float fontWidth = font.stringWidth(scoreText);
             font.drawString(text , 0, 0);
-//            scoreFont.drawString(scoreText, -fontWidth/2,0);
         ofPopMatrix();
         
     }

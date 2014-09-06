@@ -70,9 +70,8 @@ void HitAnimation::update() {
 
 void HitAnimation::draw() {
     if (alpha > 0) {
-        
         //スコアの描画
-        ofSetColor(0,0,0, scoreAlpha);
+        ofSetColor(0, 255, 0, scoreAlpha);
         float scoreX = position.x + 65;
         float scoreY = position.y;
         ofPushMatrix();
@@ -80,7 +79,7 @@ void HitAnimation::draw() {
             ofScale(scoreScale, scoreScale, 1);
             ofRotateZ(90);
             float fontWidth = scoreFont.stringWidth(scoreText);
-        scoreFont.drawString(scoreText, -fontWidth/2,0);
+            scoreFont.drawString(scoreText, -fontWidth/2,0);
         ofPopMatrix();
         
         //画像の描画

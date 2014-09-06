@@ -28,6 +28,16 @@ public:
     int alpha;
     bool isEnd;
     
+    int totalScore;
+    int randScore;
+    
+    ofImage bgImg;
+    
+    unsigned long long startTime;
+    unsigned long long currentTime;
+    unsigned long long elapsedTime;
+    
 private:
     string toString(int n);
+    ofTrueTypeFont ptsFont;
 };
