@@ -24,6 +24,11 @@ void ofApp::startOpeningAnimation(){
 }
 
 
+void ofApp::startTimer() {
+    timerGraphic.start();
+    isRunningTimer = true;
+}
+
 
 void ofApp::startEndingAnimation(int totalScore){
     edAnimation.start(totalScore);
@@ -39,8 +44,12 @@ void ofApp::startEndingAnimation(int totalScore){
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofBackground(255,255,255);
+    ofEnableSmoothing();
+    
     animationIndex = 0;
-
+    
+    timerGraphic.setup();
     opAnimation.setup();
     edAnimation.setup();
     
@@ -63,6 +72,14 @@ void ofApp::update(){
             isRunningOpeningAnimation = false;
         }
     }
+    
+    // Timer
+    if (isRunningTimer) {
+        if (! timerGraphic.update()) {
+            isRunningTimer = false;
+        }
+    }
+    
     // Ending Animation
     if (isRunningEndingAnimation) {
         if (! edAnimation.update()) {
@@ -83,6 +100,12 @@ void ofApp::draw(){
         opAnimation.draw();
     }
     
+    // Timer
+    if (isRunningTimer) {
+        timerGraphic.draw();
+    }
+    
+    
     // Ending Animation
     if (isRunningEndingAnimation) {
         edAnimation.draw();
@@ -101,6 +124,9 @@ void ofApp::keyPressed(int key){
     }
     else if (key == 'e') {
         startEndingAnimation(ofRandom(9999));
+    }
+    else if (key == 't') {
+        startTimer();
     }
     else {
         hit(ofRandom(999), ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));

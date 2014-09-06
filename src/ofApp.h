@@ -4,6 +4,7 @@
 #include "HitAnimation.h"
 #include "OpeningAnimation.h"
 #include "EndingAnimation.h"
+#include "GameTimer.h"
 
 class ofApp : public ofBaseApp{
     
@@ -35,4 +36,8 @@ class ofApp : public ofBaseApp{
         EndingAnimation edAnimation;
         void startEndingAnimation(int totalScore);
         bool isRunningEndingAnimation;
+    
+        GameTimer timerGraphic;
+        void startTimer();
+        bool isRunningTimer;
 };
