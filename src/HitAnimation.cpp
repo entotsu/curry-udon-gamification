@@ -20,8 +20,9 @@ void HitAnimation::setup() {
     scoreFont.setLineHeight(18.0f);
     scoreFont.setLetterSpacing(1.037);
     alpha = 0;
-    
     hitImage.loadImage("point4.png");
+    hitSound.loadSound("coin.wav");
+    hitSound.setMultiPlay(true);
     
     //debug
 //    position.x = ofRandom(ofGetWidth());
@@ -34,6 +35,9 @@ void HitAnimation::setup() {
 
 
 void HitAnimation::start(int score,float x, float y) {
+    //音の再生
+    hitSound.play();
+
     alpha = 255;
     scoreAlpha = 0;
     scoreScale = 0;
@@ -66,6 +70,8 @@ void HitAnimation::update() {
 
 void HitAnimation::draw() {
     if (alpha > 0) {
+        
+        //スコアの描画
         ofSetColor(0,0,0, scoreAlpha);
         float scoreX = position.x + 65;
         float scoreY = position.y;
@@ -77,7 +83,7 @@ void HitAnimation::draw() {
         scoreFont.drawString(scoreText, -fontWidth/2,0);
         ofPopMatrix();
         
-        //色の設定
+        //画像の描画
         ofSetColor(255, 255, 255);
         float imgX = position.x - ((size + SIZE_INCREACE_SPEED) / 2);
         float imgY = position.y - ((size + SIZE_INCREACE_SPEED) / 2);

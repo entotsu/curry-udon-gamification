@@ -32,6 +32,7 @@ public:
     
     
     ofImage hitImage;
+    ofSoundPlayer hitSound;
 
 private:
     string toString(int n);
