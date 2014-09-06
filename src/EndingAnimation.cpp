@@ -69,7 +69,7 @@ void EndingAnimation::draw() {
         // total score
         ofPushMatrix();
             ofTranslate(position.x, position.y);
-            ofRotateZ(90);
+            ofRotateZ(-90);
             font.drawString(scoreText, (-font.stringWidth(scoreText)/2) - 50, 0);
             ptsFont.drawString("pts", 100, 0);
         ofPopMatrix();

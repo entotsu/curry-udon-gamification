@@ -27,8 +27,8 @@ void GameTimer::start() {
     alpha = 105;
     remainSec = TIME_LIMIT_SEC;
     startClock = ofGetElapsedTimeMillis();
-    position.x = ofGetWidth() - 200;
-    position.y = ofGetHeight() - 300;
+    position.x = 200;
+    position.y = 300;
 }
 
 
@@ -69,7 +69,7 @@ void GameTimer::draw() {
         
         ofPushMatrix();
             ofTranslate(position.x, position.y);
-            ofRotateZ(90);
+            ofRotateZ(-90);
             font.drawString(text , 0, 0);
         ofPopMatrix();
         
