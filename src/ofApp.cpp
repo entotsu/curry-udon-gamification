@@ -25,6 +25,11 @@ void ofApp::startOpeningAnimation(){
     opAnimation.start();
     isRunningOpeningAnimation = true;
 //    isPlayingGame = true;
+    edAnimation.alpha = 0;
+    for (int i = 0; i < MAX_ANIMATION; i++) {
+        hits[i].isEndingMode = false;
+        hits[i].alpha = 0;
+    }
 }
 
 
@@ -82,6 +87,7 @@ void ofApp::update(){
     
     // Opening Animation
     if (isRunningOpeningAnimation) {
+        //ゲームがスタートした瞬間の処理
         if (! opAnimation.update()) {
             isRunningOpeningAnimation = false;
             startTimer();
@@ -90,6 +96,7 @@ void ofApp::update(){
     
     // Timer
     if (isRunningTimer) {
+        //ゲームが終わった瞬間の処理
         if (! timerGraphic.update()) {
             isRunningTimer = false;
             startEndingAnimation(totalScore);
