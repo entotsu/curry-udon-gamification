@@ -40,4 +40,6 @@ class ofApp : public ofBaseApp{
         GameTimer timerGraphic;
         void startTimer();
         bool isRunningTimer;
+    
+        int totalScore;
 };

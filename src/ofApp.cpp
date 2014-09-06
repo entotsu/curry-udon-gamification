@@ -2,15 +2,18 @@
 
 
 
+//=======================================================================
+//   APIs
+//=======================================================================
 
 
 
 void ofApp::hit(int score, float x, float y){
-    
-    hits[animationIndex].start(score, x, y);
-    
     //アニメ−ションさせる要素をずらしていく
+    hits[animationIndex].start(score, x, y);
     if (++animationIndex == MAX_ANIMATION) animationIndex = 0;
+
+    totalScore += score;
 }
 
 
@@ -21,11 +24,13 @@ void ofApp::hit(int score, float x, float y){
 void ofApp::startOpeningAnimation(){
     opAnimation.start();
     isRunningOpeningAnimation = true;
+//    isPlayingGame = true;
 }
 
 
 void ofApp::startTimer() {
     timerGraphic.start();
+    totalScore = 0;
     isRunningTimer = true;
 }
 
@@ -41,7 +46,14 @@ void ofApp::startEndingAnimation(int totalScore){
 
 
 
-//--------------------------------------------------------------
+
+
+
+
+//=======================================================================
+//   of の ライフサイクル
+//=======================================================================
+
 void ofApp::setup(){
     
     ofBackground(255,255,255);
@@ -70,6 +82,7 @@ void ofApp::update(){
     if (isRunningOpeningAnimation) {
         if (! opAnimation.update()) {
             isRunningOpeningAnimation = false;
+            startTimer();
         }
     }
     
@@ -77,6 +90,7 @@ void ofApp::update(){
     if (isRunningTimer) {
         if (! timerGraphic.update()) {
             isRunningTimer = false;
+            startEndingAnimation(totalScore);
         }
     }
     
