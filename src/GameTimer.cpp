@@ -10,7 +10,7 @@
 #include <sstream>
 #include <string>
 
-#define TIME_LIMIT_MIN 0.1
+#define TIME_LIMIT_SEC 30
 
 void GameTimer::setup() {
     // フォント設定
@@ -25,7 +25,7 @@ void GameTimer::setup() {
 
 void GameTimer::start() {
     alpha = 255;
-    remainSec = TIME_LIMIT_MIN * 60;
+    remainSec = TIME_LIMIT_SEC;
     startClock = ofGetElapsedTimeMillis();
     position.x = ofGetWidth() - 350;
     position.y = 100;
@@ -41,25 +41,20 @@ void GameTimer::start() {
 
 bool GameTimer::update() { //アニメ−ションが終わったらfalseを返す。
     if (remainSec > 0) {
+        
         currentClock = ofGetElapsedTimeMillis();
-        timeLimitSec = TIME_LIMIT_MIN * 60;
+        timeLimitSec = TIME_LIMIT_SEC;
         unsigned long long msec = currentClock - startClock;
         unsigned long long totalSec = msec / 1000;
         remainSec = timeLimitSec - totalSec;
-        unsigned long long min = remainSec / 60;
-        unsigned long long sec = remainSec - (min * 60);
-
-        //min string
-        std::ostringstream stream_min;
-        stream_min << std::setfill('0') << std::setw(2) << min;
-        std::string m_str = stream_min.str();
+        unsigned long long sec = remainSec;
 
         //sec string
         std::ostringstream stream_sec;
         stream_sec << std::setfill('0') << std::setw(2) << sec;
         std::string s_str = stream_sec.str();
         
-        text = m_str + ':' + s_str;
+        text = s_str;
         
         return true;
     }
