@@ -51,24 +51,21 @@ void HitAnimation::start(int score,float x, float y) {
 
 void HitAnimation::update() {
     if (alpha > 0) {
-//        position.y -= 2;
         if (size <= MAX_SIZE) {
             size += SIZE_INCREACE_SPEED;
         }
-        else {
-            //            alpha -= 5;
-        }
-        if (scoreAlpha <= 255) {
-            scoreAlpha += 5;
-            scoreScale += 0.02;
+        
+        if (size >= MAX_SIZE / 2) {
+            if (scoreAlpha <= 255) {
+                scoreAlpha += 5;
+                scoreScale += 0.02;
+            }
         }
     }
 }
 
 void HitAnimation::draw() {
     if (alpha > 0) {
-        
-        
         ofSetColor(0,0,0, scoreAlpha);
         float scoreX = position.x + 65;
         float scoreY = position.y;
