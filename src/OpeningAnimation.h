@@ -27,6 +27,10 @@ public:
     int alpha;
     bool isEnd;
     
+    float textScale;
+    string text;
+    
 private:
     string toString(int n);
+    int step;
 };

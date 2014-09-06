@@ -24,8 +24,11 @@ void OpeningAnimation::setup() {
 
 void OpeningAnimation::start() {
     alpha = 255;
+    step = 0;
+    textScale = 0;
     position.x = ofGetWidth() / 2;
     position.y = ofGetHeight() / 2;
+    text = "Ready";
 }
 
 
@@ -36,8 +39,15 @@ void OpeningAnimation::start() {
 
 bool OpeningAnimation::update() { //アニメ−ションが終わったらfalseを返す。
     if (alpha > 0) {
-        position.y -= 2;
-        alpha -= 5;
+        alpha -= 2.5;
+        textScale += 0.02;
+        return true;
+    }
+    else if (step == 0) {
+        step = 1;
+        alpha = 255;
+        textScale = 0;
+        text = "GO!!!";
         return true;
     }
     else {
@@ -48,7 +58,13 @@ bool OpeningAnimation::update() { //アニメ−ションが終わったらfalse
 void OpeningAnimation::draw() {
     if (alpha > 0) {
         ofSetColor(0,0,0, alpha);
-        font.drawString("start", position.x, position.y);
+        
+        ofPushMatrix();
+            ofTranslate(position.x, position.y);
+            ofRotateZ(-90);
+            ofScale(textScale, textScale, 1);
+            font.drawString(text, -font.stringWidth(text)/2, font.getLineHeight());
+        ofPopMatrix();
     }
 }
 
