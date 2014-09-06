@@ -14,7 +14,7 @@
 void EndingAnimation::setup() {
     // フォント設定
     ofTrueTypeFont::setGlobalDpi(700);//72);
-	font.loadFont("Batang.ttf", 10, true, true, true);
+	font.loadFont("kremlin.ttf", 10, true, true, true);
     font.setLineHeight(18.0f);
     font.setLetterSpacing(1.037);
 }

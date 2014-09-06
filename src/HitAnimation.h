@@ -26,8 +26,14 @@ public:
     ofTrueTypeFont scoreFont;
     ofVec2f position;
     int alpha;
+    int scoreAlpha;
     bool isEnd;
+    float size;
+    
+    
+    ofImage hitImage;
 
 private:
     string toString(int n);
+    float scoreScale;
 };
