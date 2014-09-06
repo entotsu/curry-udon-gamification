@@ -67,14 +67,17 @@ void HitAnimation::update() {
 
 void HitAnimation::draw() {
     if (alpha > 0) {
+        
+        
         ofSetColor(0,0,0, scoreAlpha);
-        float scoreX = position.x;
-        float scoreY = position.y - MAX_SIZE + 20;
+        float scoreX = position.x + 65;
+        float scoreY = position.y;
         ofPushMatrix();
             ofTranslate(scoreX, scoreY);
             ofScale(scoreScale, scoreScale, 1);
+            ofRotateZ(90);
             float fontWidth = scoreFont.stringWidth(scoreText);
-            scoreFont.drawString(scoreText, -fontWidth/2, 0);
+        scoreFont.drawString(scoreText, -fontWidth/2,0);
         ofPopMatrix();
         
         //色の設定
