@@ -199,10 +199,10 @@
 				B0AA6F1119AB97030086CD33 /* HitAnimation.cpp */,
 				B0C719EE19AE310B008D95BD /* OpeningAnimation.h */,
 				B0C719ED19AE310B008D95BD /* OpeningAnimation.cpp */,
-				B054D3CB19AE360F0032FD4C /* EndingAnimation.h */,
-				B054D3CA19AE360F0032FD4C /* EndingAnimation.cpp */,
 				B0DDB6B919BAA7340005F337 /* GameTimer.h */,
 				B0DDB6B819BAA7340005F337 /* GameTimer.cpp */,
+				B054D3CB19AE360F0032FD4C /* EndingAnimation.h */,
+				B054D3CA19AE360F0032FD4C /* EndingAnimation.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

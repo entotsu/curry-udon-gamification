@@ -22,6 +22,8 @@ public:
     void update();
     void start(int score,float x, float y);
 
+    bool isEndingMode;
+    
     string scoreText;
     ofTrueTypeFont scoreFont;
     ofVec2f position;

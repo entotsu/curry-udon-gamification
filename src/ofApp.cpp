@@ -38,9 +38,11 @@ void ofApp::startTimer() {
 void ofApp::startEndingAnimation(int totalScore){
     edAnimation.start(totalScore);
     isRunningEndingAnimation = true;
+    
+    for (int i = 0; i < MAX_ANIMATION; i++) {
+        hits[i].isEndingMode = true;
+    }
 }
-
-
 
 
 

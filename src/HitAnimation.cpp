@@ -12,6 +12,7 @@
 
 #define SIZE_INCREACE_SPEED 2.5
 #define MAX_SIZE 100
+#define ENDING_MODE_ALPHA 100
 
 void HitAnimation::setup() {
     //フォント設定
@@ -72,6 +73,7 @@ void HitAnimation::draw() {
     if (alpha > 0) {
         //スコアの描画
         ofSetColor(0, 255, 0, scoreAlpha);
+        if (isEndingMode) ofSetColor(0, 255, 0, ENDING_MODE_ALPHA);
         float scoreX = position.x - 65;
         float scoreY = position.y;
         ofPushMatrix();
@@ -84,6 +86,7 @@ void HitAnimation::draw() {
         
         //画像の描画
         ofSetColor(255, 255, 255);
+        if (isEndingMode) ofSetColor(255, 255, 255, ENDING_MODE_ALPHA);
         float imgX = position.x - ((size + SIZE_INCREACE_SPEED) / 2);
         float imgY = position.y - ((size + SIZE_INCREACE_SPEED) / 2);
         hitImage.draw(imgX, imgY, size, size);
