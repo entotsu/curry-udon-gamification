@@ -10,12 +10,12 @@
 #include <sstream>
 #include <string>
 
-#define TIME_LIMIT_SEC 30
+#define TIME_LIMIT_SEC 6
 
 void GameTimer::setup() {
     // フォント設定
     ofTrueTypeFont::setGlobalDpi(700);//72);
-	font.loadFont("kremlin.ttf", 10, true, true, true);
+	font.loadFont("kremlin.ttf", 20, true, true, true);
     font.setLineHeight(18.0f);
     font.setLetterSpacing(1.037);
 }
@@ -24,11 +24,11 @@ void GameTimer::setup() {
 
 
 void GameTimer::start() {
-    alpha = 255;
+    alpha = 105;
     remainSec = TIME_LIMIT_SEC;
     startClock = ofGetElapsedTimeMillis();
-    position.x = ofGetWidth() - 350;
-    position.y = 100;
+    position.x = ofGetWidth() - 200;
+    position.y = ofGetHeight() - 300;
 }
 
 
@@ -66,7 +66,18 @@ bool GameTimer::update() { //アニメ−ションが終わったらfalseを返�
 void GameTimer::draw() {
     if (alpha > 0) {
         ofSetColor(0,0,0, alpha);
-        font.drawString(text , position.x, position.y);
+        
+        
+
+        
+        ofPushMatrix();
+            ofTranslate(position.x, position.y);
+            ofRotateZ(90);
+//            float fontWidth = font.stringWidth(scoreText);
+            font.drawString(text , 0, 0);
+//            scoreFont.drawString(scoreText, -fontWidth/2,0);
+        ofPopMatrix();
+        
     }
 }
 
