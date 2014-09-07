@@ -64,7 +64,7 @@ bool EndingAnimation::update() { //アニメ−ションが終わったらfalse�
 
 void EndingAnimation::draw() {
     if (alpha > 0) {
-        ofSetColor(0,0,0, alpha);
+        ofSetColor(255,255,255, alpha);
 
         bgImg.draw(0, 80, 1000, 605);
         
