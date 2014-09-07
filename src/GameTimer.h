@@ -43,4 +43,6 @@ private:
     bool isLastMode;
     int lastStep;
     bool isEndAllAnimation;
+    
+    ofSoundPlayer countdownSound;
 };
