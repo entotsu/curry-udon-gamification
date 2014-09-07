@@ -21,6 +21,7 @@ void EndingAnimation::setup() {
         
     bgImg.loadImage("total_score.png");
     drumrollSound.loadSound("dramroll.wav");
+    newScoreImg.loadImage("newscore.png");
 }
 
 
@@ -44,21 +45,28 @@ void EndingAnimation::start(int score) {
 // -------- loop --------
 
 bool EndingAnimation::update() { //アニメ−ションが終わったらfalseを返す。
+    //ドラムロール
+    currentTime = ofGetElapsedTimeMillis();
     if (elapsedTime < 2000) {
-        
-        currentTime = ofGetElapsedTimeMillis();
         elapsedTime = currentTime - startTime;
         randScore = ofRandom(9999);
         scoreText = toString(randScore);
-        
         return true;
     }
-    else if(elapsedTime < 6000) {
-        scoreText = toString(totalScore);
-        return true;
-    }
+    //スコア表示後
     else {
-        return false;//アニメ−ション終了
+        if (isNewScore) {
+            if(int(currentTime / 400) % 2 == 0) newScoreAlpha = 0;
+            else newScoreAlpha = 255;
+            return true;
+        }
+        if(elapsedTime < 6000) {
+            scoreText = toString(totalScore);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
 
@@ -68,12 +76,17 @@ void EndingAnimation::draw() {
 
         bgImg.draw(0, 80, 1000, 605);
         
+        ofSetColor(0,0,0, alpha);
         // total score
         ofPushMatrix();
             ofTranslate(position.x, position.y);
             ofRotateZ(-90);
             font.drawString(scoreText, (-font.stringWidth(scoreText)/2) - 50, 0);
             ptsFont.drawString("pts", 100, 0);
+        if (isNewScore && elapsedTime > 2000) {
+            ofSetColor(255,255,255, newScoreAlpha);
+            newScoreImg.draw(-230, 80);
+        }
         ofPopMatrix();
     }
 }

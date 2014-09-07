@@ -26,6 +26,7 @@ void ofApp::startOpeningAnimation(){
     isRunningOpeningAnimation = true;
 //    isPlayingGame = true;
     edAnimation.alpha = 0;
+    edAnimation.isNewScore = false;
     for (int i = 0; i < MAX_ANIMATION; i++) {
         hits[i].isEndingMode = false;
         hits[i].alpha = 0;
@@ -41,6 +42,12 @@ void ofApp::startTimer() {
 
 
 void ofApp::startEndingAnimation(int totalScore){
+    
+    if (totalScore >= bestScore) {
+        bestScore = totalScore;
+        edAnimation.isNewScore = true;
+    }
+    
     edAnimation.start(totalScore);
     isRunningEndingAnimation = true;
     
@@ -75,6 +82,8 @@ void ofApp::setup(){
     for (int i = 0; i < MAX_ANIMATION; i++) {
         hits[i].setup();
     }
+    
+    bestScore = 0;
 }
 
 //--------------------------------------------------------------

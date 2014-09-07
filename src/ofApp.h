@@ -42,4 +42,6 @@ class ofApp : public ofBaseApp{
         bool isRunningTimer;
     
         int totalScore;
+    
+        int bestScore;
 };
