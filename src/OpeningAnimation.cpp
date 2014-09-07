@@ -17,6 +17,9 @@ void OpeningAnimation::setup() {
 	font.loadFont("kremlin.ttf", 10, true, true, true);
     font.setLineHeight(18.0f);
     font.setLetterSpacing(1.037);
+
+    sound_ready.loadSound("ready.wav");
+    sound_go.loadSound("go.wav");
 }
 
 
@@ -29,6 +32,8 @@ void OpeningAnimation::start() {
     position.x = ofGetWidth() / 2;
     position.y = ofGetHeight() / 2;
     text = "Ready";
+    
+    sound_ready.play();
 }
 
 
@@ -44,6 +49,7 @@ bool OpeningAnimation::update() { //アニメ−ションが終わったらfalse
         return true;
     }
     else if (step == 0) {
+        sound_go.play();
         step = 1;
         alpha = 255;
         textScale = 0;
