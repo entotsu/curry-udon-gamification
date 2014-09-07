@@ -20,12 +20,14 @@ void EndingAnimation::setup() {
     font.setLetterSpacing(1.037);
         
     bgImg.loadImage("total_score.png");
+    drumrollSound.loadSound("dramroll.wav");
 }
 
 
 
 
 void EndingAnimation::start(int score) {
+    drumrollSound.play();
     alpha = 255;
     position.x = ofGetWidth() / 2;
     position.y = ofGetHeight() / 2;
@@ -42,7 +44,7 @@ void EndingAnimation::start(int score) {
 // -------- loop --------
 
 bool EndingAnimation::update() { //アニメ−ションが終わったらfalseを返す。
-    if (elapsedTime < 1000) {
+    if (elapsedTime < 2000) {
         
         currentTime = ofGetElapsedTimeMillis();
         elapsedTime = currentTime - startTime;

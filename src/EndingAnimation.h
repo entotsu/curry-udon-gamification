@@ -40,4 +40,5 @@ public:
 private:
     string toString(int n);
     ofTrueTypeFont ptsFont;
+    ofSoundPlayer drumrollSound;
 };
