@@ -27,6 +27,7 @@ public:
     string scoreText;
     ofTrueTypeFont scoreFont;
     ofVec2f position;
+    ofVec2f scorePosition;
     int alpha;
     int scoreAlpha;
     bool isEnd;

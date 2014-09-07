@@ -40,12 +40,14 @@ void HitAnimation::start(int score,float x, float y) {
     hitSound.play();
 
     alpha = 255;
-    scoreAlpha = 0;
+    scoreAlpha = 255;
     scoreScale = 0;
     size = 0;
     scoreText = toString(score);
     position.x = x;
     position.y = y;
+    scorePosition.x = x;
+    scorePosition.y = y;
 }
 
 
@@ -60,11 +62,14 @@ void HitAnimation::update() {
             size += SIZE_INCREACE_SPEED;
         }
         
+        //遅れてスコアの表示開始
         if (size >= MAX_SIZE / 2) {
-            if (scoreAlpha <= 255) {
-                scoreAlpha += 5;
+            if (scoreScale <= 1) {
                 scoreScale += 0.02;
+            }else {
+                scorePosition.x -= 2;
             }
+            scoreAlpha -= 2.5;
         }
     }
 }
@@ -74,8 +79,8 @@ void HitAnimation::draw() {
         //スコアの描画
         ofSetColor(0, 255, 0, scoreAlpha);
         if (isEndingMode) ofSetColor(0, 255, 0, ENDING_MODE_ALPHA);
-        float scoreX = position.x - 65;
-        float scoreY = position.y;
+        float scoreX = scorePosition.x - 65;
+        float scoreY = scorePosition.y;
         ofPushMatrix();
             ofTranslate(scoreX, scoreY);
             ofScale(scoreScale, scoreScale, 1);
