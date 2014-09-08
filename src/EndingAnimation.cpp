@@ -56,9 +56,8 @@ bool EndingAnimation::update() { //アニメ−ションが終わったらfalse�
     //スコア表示後
     else {
         if (isNewScore) {
-            if(int(currentTime / 400) % 2 == 0) newScoreAlpha = 0;
+            if (int(currentTime / 400) % 2 == 0) newScoreAlpha = 0;
             else newScoreAlpha = 255;
-            return true;
         }
         if(elapsedTime < 6000) {
             scoreText = toString(totalScore);
